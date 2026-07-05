@@ -9,20 +9,21 @@ export function CreateClientPage({
         name: "",
         cpf: "",
         phone: "",
-        email: "",
+        email: ""
     })
 
     function saveClient(client) {
+
         setClientList([
             ...clientList,
             client
         ])
 
-        console.log("Cliente salvo:")
         console.log(client)
     }
 
     function handleSubmit(event) {
+
         event.preventDefault()
 
         saveClient(client)
@@ -31,75 +32,120 @@ export function CreateClientPage({
             name: "",
             cpf: "",
             phone: "",
-            email: "",
+            email: ""
         })
     }
 
     return (
-       <main>
-            <h2>Cadastrar novo cliente</h2>
 
-            <form onSubmit={handleSubmit}>
+        <main>
 
-                <label htmlFor="name">Nome</label>
-                <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                value={client.name}
-                onChange={(event) => {
-                    setClient({
-                        ...client,
-                        name: event.target.value
-                    })
-                }} />
+            <div className="page-header">
 
-                <label htmlFor="cpf">CPF</label>
-                <input 
-                type="tel" 
-                id="cpf" 
-                name="cpf" 
-                placeholder="000.000.000-00" 
-                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
-                maxLength={14} 
-                required 
-                value={client.cpf}
-                onChange={(event) => {
-                    setClient({
-                        ...client,
-                        cpf: event.target.value
-                    })
-                }}/>
+                <h2 className="page-header__title">
+                    Novo Cliente
+                </h2>
 
-                <label htmlFor="phone">Phone</label>
-                <input
-                type="tel" 
-                id="phone" 
-                name="phone" 
-                placeholder="(00)00000-0000" 
-                value={client.phone}
-                onChange={(event) => {
-                    setClient({
-                        ...client,
-                        phone: event.target.value
-                    })
-                }}/>
+            </div>
 
-                <label htmlFor="email">E-mail</label>
-                <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                value={client.email}
-                onChange={(event) => {
-                    setClient({
-                        ...client,
-                        email: event.target.value
-                    })
-                }} />
+            <form
+                className="form"
+                onSubmit={handleSubmit}
+            >
 
-                <button id="saveClient" type="submit">Salvar</button>
+                <div className="form__group">
+
+                    <label htmlFor="name">
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        value={client.name}
+                        onChange={(event) =>
+                            setClient({
+                                ...client,
+                                name: event.target.value
+                            })
+                        }
+                    />
+
+                </div>
+
+                <div className="form__group">
+
+                    <label htmlFor="cpf">
+                        CPF
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="cpf"
+                        value={client.cpf}
+                        maxLength={14}
+                        placeholder="000.000.000-00"
+                        onChange={(event) =>
+                            setClient({
+                                ...client,
+                                cpf: event.target.value
+                            })
+                        }
+                    />
+
+                </div>
+
+                <div className="form__group">
+
+                    <label htmlFor="phone">
+                        Telefone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        value={client.phone}
+                        placeholder="(00)00000-0000"
+                        onChange={(event) =>
+                            setClient({
+                                ...client,
+                                phone: event.target.value
+                            })
+                        }
+                    />
+
+                </div>
+
+                <div className="form__group">
+
+                    <label htmlFor="email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        value={client.email}
+                        onChange={(event) =>
+                            setClient({
+                                ...client,
+                                email: event.target.value
+                            })
+                        }
+                    />
+
+                </div>
+
+                <button
+                    className="btn btn--primary"
+                    type="submit"
+                >
+                    Salvar Cliente
+                </button>
+
             </form>
-        </main> 
+
+        </main>
+
     )
 }

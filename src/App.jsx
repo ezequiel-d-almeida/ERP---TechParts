@@ -1,40 +1,84 @@
-import { Dashboard } from './pages/Dashboard'
-import { Products } from './pages/Products'
-import { CreateProductPage } from './pages/CreateProduct'
-import { Sales } from './pages/Sale'
-import { Client } from './pages/Client'
-import { CreateClientPage } from './pages/CreateClient'
-import { Sidebar } from './components/Sidebar'
-import { Header } from './components/Header'
+import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
-import { useState } from 'react'
+
+import { Dashboard } from "./pages/Dashboard"
+import { Products } from "./pages/Products"
+import { CreateProductPage } from "./pages/CreateProduct"
+import { Sales } from "./pages/Sale"
+import { Client } from "./pages/Client"
+import { CreateClientPage } from "./pages/CreateClient"
+
+import { Header } from "./components/Header"
+import { Sidebar } from "./components/Sidebar"
 
 function App() {
-  const[clientList, setClientList] = useState([])
-  const[productsList, setProductList] = useState([])
 
-  return (
-    <>
-      <div className='app-container'>
-          <Header></Header>
-          <Sidebar></Sidebar>
-          
-          <Routes>
-              <Route path="/" element={<Dashboard />} />
+    const [clientList, setClientList] = useState([])
+    const [productList, setProductList] = useState([])
 
-              <Route path="/products" element={<Products productList={productsList} />} />
+    return (
 
-              <Route path="/clients" element={<Client clientList={clientList}/>} />
+        <div className="app-container">
 
-              <Route path="/sales" element={<Sales />} />
+            <Header />
 
-              <Route path="/createClient" element={<CreateClientPage clientList={clientList} setClientList={setClientList}/>} />
+            <Sidebar />
 
-              <Route path="/createProduct" element={<CreateProductPage productList={productsList} setProductList={setProductList}/>} />
-          </Routes>
-      </div>
-    </>   
-  )
+            <Routes>
+
+                <Route
+                    path="/"
+                    element={<Dashboard />}
+                />
+
+                <Route
+                    path="/products"
+                    element={
+                        <Products
+                            productList={productList}
+                        />
+                    }
+                />
+
+                <Route
+                    path="/createProduct"
+                    element={
+                        <CreateProductPage
+                            productList={productList}
+                            setProductList={setProductList}
+                        />
+                    }
+                />
+
+                <Route
+                    path="/clients"
+                    element={
+                        <Client
+                            clientList={clientList}
+                        />
+                    }
+                />
+
+                <Route
+                    path="/createClient"
+                    element={
+                        <CreateClientPage
+                            clientList={clientList}
+                            setClientList={setClientList}
+                        />
+                    }
+                />
+
+                <Route
+                    path="/sales"
+                    element={<Sales />}
+                />
+
+            </Routes>
+
+        </div>
+
+    )
 }
 
 export default App

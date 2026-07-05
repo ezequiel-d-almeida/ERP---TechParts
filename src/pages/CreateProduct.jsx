@@ -1,68 +1,135 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from "react"
 
 export function CreateProductPage({
+
     productList,
     setProductList
+
 }) {
+
     const [product, setProduct] = useState({
+
         name: "",
         price: "",
-        description: "",
+        description: ""
+
     })
 
     function saveProduct(product) {
+
         setProductList([
+
             ...productList,
             product
+
         ])
-        console.log("Produto salvo:")
+
         console.log(product)
+
     }
 
     function handleSubmit(event) {
+
         event.preventDefault()
 
         saveProduct(product)
+
         setProduct({
+
             name: "",
             price: "",
-            description: "",
+            description: ""
+
         })
+
     }
 
     return (
+
         <main>
-            <h2>Cadastrar novo produto</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Nome:</label>
+
+            <div className="page-header">
+
+                <h2 className="page-header__title">
+                    Novo Produto
+                </h2>
+
+            </div>
+
+            <form
+                className="form"
+                onSubmit={handleSubmit}
+            >
+
+                <div className="form__group">
+
+                    <label htmlFor="name">
+                        Nome
+                    </label>
+
                     <input
-                        type="text"
                         id="name"
+                        type="text"
                         value={product.name}
-                        onChange={(e) => setProduct({ ...product, name: e.target.value })}
+                        onChange={(event) =>
+                            setProduct({
+                                ...product,
+                                name: event.target.value
+                            })
+                        }
                     />
+
                 </div>
-                <div>
-                    <label htmlFor="price">Preço:</label>
+
+                <div className="form__group">
+
+                    <label htmlFor="price">
+                        Preço
+                    </label>
+
                     <input
-                        type="number"
                         id="price"
+                        type="number"
                         value={product.price}
-                        onChange={(e) => setProduct({ ...product, price: e.target.value })}
+                        onChange={(event) =>
+                            setProduct({
+                                ...product,
+                                price: event.target.value
+                            })
+                        }
                     />
+
                 </div>
-                <div>
-                    <label htmlFor="description">Descrição:</label>
+
+                <div className="form__group">
+
+                    <label htmlFor="description">
+                        Descrição
+                    </label>
+
                     <textarea
                         id="description"
                         value={product.description}
-                        onChange={(e) => setProduct({ ...product, description: e.target.value })}
+                        onChange={(event) =>
+                            setProduct({
+                                ...product,
+                                description: event.target.value
+                            })
+                        }
                     />
+
                 </div>
-                <button type="submit">Cadastrar</button>
+
+                <button
+                    className="btn btn--primary"
+                    type="submit"
+                >
+                    Salvar Produto
+                </button>
+
             </form>
+
         </main>
+
     )
 }

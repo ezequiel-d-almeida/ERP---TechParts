@@ -1,12 +1,27 @@
 export function Header() {
     return (
         <header id="header">
-            <h1>TechParts</h1>
-            <nav id='header__actions'>
-                <button className='button__header'>User</button>
-                <button className='button__header'>Config</button>
-                <button className='button__header'>LogOut</button>   
+
+            <h1 className="header__title">
+                TechParts
+            </h1>
+
+            <nav className="header__actions">
+
+                <button className="btn btn--secondary">
+                    Usuário
+                </button>
+
+                <button className="btn btn--secondary">
+                    Configurações
+                </button>
+
+                <button className="btn btn--danger">
+                    Sair
+                </button>
+
             </nav>
+
         </header>
     )
 }

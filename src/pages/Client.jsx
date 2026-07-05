@@ -1,20 +1,52 @@
 import { Link } from "react-router-dom"
 
-export function Client({
-    clientList
-}) {
+export function Client({ clientList }) {
 
     return (
+
         <main>
-            <div id="topoLista__clients">
-                <h2>Lista de clientes</h2>
-                <Link  className="new__button" to="/createClient">
-                Novo Cliente
+
+            <div className="page-header">
+
+                <h2 className="page-header__title">
+                    Clientes
+                </h2>
+
+                <Link
+                    className="btn btn--primary"
+                    to="/createClient"
+                >
+                    Novo Cliente
                 </Link>
 
-                <h3>Nome - Email - Telefone</h3>
             </div>
-            {clientList.map(client => (<p key={clientList.indexOf(client)}>{client.name} - {client.email} - {client.phone}</p>))}
+
+            <div className="list-header">
+
+                <span>Nome</span>
+                <span>E-mail</span>
+                <span>Telefone</span>
+
+            </div>
+
+            {clientList.map((client, index) => (
+
+                <div
+                    className="list-row"
+                    key={index}
+                >
+
+                    <span>{client.name}</span>
+
+                    <span>{client.email}</span>
+
+                    <span>{client.phone}</span>
+
+                </div>
+
+            ))}
+
         </main>
+
     )
 }

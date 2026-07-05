@@ -1,19 +1,23 @@
 import { Link } from "react-router-dom"
 
 export function Sidebar() {
-    return  (
-            <nav id='sidebar'>
-                <Link className="nav-button" to="/products">
-                    Produtos
-                </Link>
+    return (
 
-                <Link className="nav-button" to="/clients">
-                    Clientes
-                </Link>
+        <nav id="sidebar">
 
-                <Link className="nav-button" to="/sales">
-                    Vendas
-                </Link>
-            </nav>
+            <Link className="sidebar__link" to="/products">
+                Produtos
+            </Link>
+
+            <Link className="sidebar__link" to="/clients">
+                Clientes
+            </Link>
+
+            <Link className="sidebar__link" to="/sales">
+                Vendas
+            </Link>
+
+        </nav>
+
     )
 }
