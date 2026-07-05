@@ -1,7 +1,9 @@
 import { useState } from "react"
-import { clientList } from "./Client"
 
-export function CreateClientPage() {
+export function CreateClientPage({
+    clientList,
+    setClientList
+}) {
 
     const [client, setClient] = useState({
         name: "",
@@ -10,8 +12,11 @@ export function CreateClientPage() {
         email: "",
     })
 
-    function saveClient() {
-        clientList.push(client)
+    function saveClient(client) {
+        setClientList([
+            ...clientList,
+            client
+        ])
 
         console.log("Cliente salvo:")
         console.log(client)
