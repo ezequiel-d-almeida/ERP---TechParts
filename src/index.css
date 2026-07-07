@@ -129,7 +129,7 @@ form {
   gap: 20px;
 }
 
-.form-group {
+.form__group {
   display: flex;
   flex-direction: column;
 
@@ -163,7 +163,8 @@ textarea {
   grid-template-columns:
     2fr
     2fr
-    1.5fr;
+    2fr
+    1fr;
 
   padding: 16px;
 

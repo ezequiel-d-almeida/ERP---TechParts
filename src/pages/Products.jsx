@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { PageHeader } from "../components/PageHeader"
 
 export function Products({
     productList
@@ -8,26 +9,18 @@ export function Products({
 
         <main>
 
-            <div className="page-header">
-
-                <h2 className="page-header__title">
-                    Produtos
-                </h2>
-
-                <Link
-                    className="btn btn--primary"
-                    to="/createProduct"
-                >
-                    Novo Produto
-                </Link>
-
-            </div>
+            <PageHeader
+                title="Produtos"
+                buttonText="Novo Produto"
+                buttonPath="/createProduct"
+            />
 
             <div className="list-header">
 
                 <span>Nome</span>
                 <span>Preço</span>
                 <span>Descrição</span>
+                <span>Ações</span>
 
             </div>
 
@@ -43,6 +36,26 @@ export function Products({
                     <span>R$ {product.price}</span>
 
                     <span>{product.description}</span>
+
+                    <span>
+
+                        <Link
+                            className="btn btn--secondary"
+                            to={`/editProduct/${product.id}`}
+                        >
+                            Editar
+                        </Link>
+
+                        <button
+                            className="btn btn--danger"
+                            onClick={() => {
+
+                            }}
+                        >
+                            Excluir
+                        </button>
+
+                    </span>
 
                 </div>
 

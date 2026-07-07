@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { PageHeader } from "../components/PageHeader"
 
 export function Client({ clientList }) {
 
@@ -6,26 +7,18 @@ export function Client({ clientList }) {
 
         <main>
 
-            <div className="page-header">
-
-                <h2 className="page-header__title">
-                    Clientes
-                </h2>
-
-                <Link
-                    className="btn btn--primary"
-                    to="/createClient"
-                >
-                    Novo Cliente
-                </Link>
-
-            </div>
+            <PageHeader
+                title="Clientes"
+                buttonText="Novo Cliente"
+                buttonPath="/createClient"
+            />
 
             <div className="list-header">
 
                 <span>Nome</span>
                 <span>E-mail</span>
                 <span>Telefone</span>
+                <span>Ações</span>
 
             </div>
 
@@ -41,6 +34,26 @@ export function Client({ clientList }) {
                     <span>{client.email}</span>
 
                     <span>{client.phone}</span>
+
+                    <span>
+
+                        <Link
+                            className="btn btn--secondary"
+                            to={`/editClient/${client.id}`}
+                        >
+                            Editar
+                        </Link>
+
+                        <button
+                            className="btn btn--danger"
+                            onClick={() => {
+                                // Handle client deletion
+                            }}
+                        >
+                            Excluir
+                        </button>
+
+                    </span>
 
                 </div>
 
