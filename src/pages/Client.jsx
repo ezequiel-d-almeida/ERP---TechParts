@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom"
-import { PageHeader } from "../components/PageHeader"
+import { PageHeader } from "../components/PageHeader/PageHeader"
+import { ListHeader } from "../components/ListHeader/ListHeader"
 
 export function Client({ clientList }) {
+
+    const deletarItem = (id) => {
+        const novoArray = setclientList.filter(client => client.id !== id);
+        setClientList(novoArray);
+    };
 
     return (
 
@@ -13,14 +19,15 @@ export function Client({ clientList }) {
                 buttonPath="/createClient"
             />
 
-            <div className="list-header">
-
-                <span>Nome</span>
-                <span>E-mail</span>
-                <span>Telefone</span>
-                <span>Ações</span>
-
-            </div>
+            <ListHeader
+                columns={[
+                    { label: "Id" },
+                    { label: "Nome" },
+                    { label: "E-mail" },
+                    { label: "Telefone" },
+                    { label: "Ações" }
+                ]}
+            />
 
             {clientList.map((client, index) => (
 
@@ -28,6 +35,8 @@ export function Client({ clientList }) {
                     className="list-row"
                     key={index}
                 >
+
+                    <span>{client.id}</span>
 
                     <span>{client.name}</span>
 
@@ -47,7 +56,7 @@ export function Client({ clientList }) {
                         <button
                             className="btn btn--danger"
                             onClick={() => {
-                                // Handle client deletion
+                                deletarItem(client.id);
                             }}
                         >
                             Excluir

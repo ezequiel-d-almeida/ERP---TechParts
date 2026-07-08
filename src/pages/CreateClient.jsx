@@ -6,6 +6,7 @@ export function CreateClientPage({
 }) {
 
     const [client, setClient] = useState({
+        id: crypto.randomUUID(),
         name: "",
         cpf: "",
         phone: "",
@@ -29,6 +30,7 @@ export function CreateClientPage({
         saveClient(client)
 
         setClient({
+            id: crypto.randomUUID(),
             name: "",
             cpf: "",
             phone: "",

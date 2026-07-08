@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-import { PageHeader } from "../components/PageHeader"
+import { PageHeader } from "../components/PageHeader/PageHeader"
+import { ListHeader } from "../components/ListHeader/ListHeader"
 
 export function Products({
     productList
@@ -15,14 +16,15 @@ export function Products({
                 buttonPath="/createProduct"
             />
 
-            <div className="list-header">
-
-                <span>Nome</span>
-                <span>Preço</span>
-                <span>Descrição</span>
-                <span>Ações</span>
-
-            </div>
+            <ListHeader
+                columns={[
+                    { label: "Id" },
+                    { label: "Nome" },
+                    { label: "Preço" },
+                    { label: "Descrição" },
+                    { label: "Ações" }
+                ]}
+            />
 
             {productList.map((product, index) => (
 
@@ -30,6 +32,8 @@ export function Products({
                     className="list-row"
                     key={index}
                 >
+
+                    <span>{product.id}</span>
 
                     <span>{product.name}</span>
 

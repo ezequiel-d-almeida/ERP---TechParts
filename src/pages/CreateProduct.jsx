@@ -8,7 +8,7 @@ export function CreateProductPage({
 }) {
 
     const [product, setProduct] = useState({
-
+        id,
         name: "",
         price: "",
         description: ""
@@ -35,7 +35,7 @@ export function CreateProductPage({
         saveProduct(product)
 
         setProduct({
-
+            id: crypto.randomUUID(),
             name: "",
             price: "",
             description: ""

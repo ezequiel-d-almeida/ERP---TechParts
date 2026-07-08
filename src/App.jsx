@@ -8,8 +8,8 @@ import { Sales } from "./pages/Sale"
 import { Client } from "./pages/Client"
 import { CreateClientPage } from "./pages/CreateClient"
 
-import { Header } from "./components/Header"
-import { Sidebar } from "./components/Sidebar"
+import { Header } from "./components/Header/Header"
+import { Sidebar } from "./components/Sidebar/Sidebar"
 
 function App() {
 
