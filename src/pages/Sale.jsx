@@ -19,6 +19,8 @@ export function Sales() {
                     { label: "Ações" }
                 ]}
             />
+
+            
         </main>
     )
 }

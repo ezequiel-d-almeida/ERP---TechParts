@@ -3,8 +3,15 @@ import { PageHeader } from "../components/PageHeader/PageHeader"
 import { ListHeader } from "../components/ListHeader/ListHeader"
 
 export function Products({
-    productList
+    productList,
+    setProductList
 }) {
+
+    function deletarItem(id) {
+        const novoArray = productList.filter(product => product.id !== id)
+        console.log(novoArray)
+        setProductList(novoArray)
+    }
 
     return (
 
@@ -53,7 +60,7 @@ export function Products({
                         <button
                             className="btn btn--danger"
                             onClick={() => {
-
+                                deletarItem(product.id);
                             }}
                         >
                             Excluir

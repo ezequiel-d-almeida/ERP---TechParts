@@ -36,6 +36,7 @@ function App() {
                     element={
                         <Products
                             productList={productList}
+                            setProductList={setProductList}
                         />
                     }
                 />
@@ -55,6 +56,7 @@ function App() {
                     element={
                         <Client
                             clientList={clientList}
+                            setClientList={setClientList}
                         />
                     }
                 />

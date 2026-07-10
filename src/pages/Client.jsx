@@ -2,12 +2,16 @@ import { Link } from "react-router-dom"
 import { PageHeader } from "../components/PageHeader/PageHeader"
 import { ListHeader } from "../components/ListHeader/ListHeader"
 
-export function Client({ clientList }) {
+export function Client({ 
+    clientList,
+    setClientList
+ }) {
 
-    const deletarItem = (id) => {
-        const novoArray = setclientList.filter(client => client.id !== id);
-        setClientList(novoArray);
-    };
+    function deletarItem(id) {
+        const novoArray = clientList.filter(client => client.id !== id)
+        console.log(novoArray)
+        setClientList(novoArray)
+    }
 
     return (
 
@@ -33,7 +37,7 @@ export function Client({ clientList }) {
 
                 <div
                     className="list-row"
-                    key={index}
+                    key={client.id}
                 >
 
                     <span>{client.id}</span>
