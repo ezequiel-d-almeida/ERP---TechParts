@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 import { PageHeader } from "../components/PageHeader/PageHeader"
 import { ListHeader } from "../components/ListHeader/ListHeader"
+import { SaleList } from "../components/SaleList/SaleList"
 
-export function Sales() {
+export function Sales({ saleList, setSaleList }) {
     return (
         <main>
             <PageHeader
@@ -20,7 +21,13 @@ export function Sales() {
                 ]}
             />
 
-            
+           {saleList.map((sale, index) => (
+                <SaleList
+                    key={index}     
+                    sale={sale}
+                />
+            ))}
+
         </main>
     )
 }

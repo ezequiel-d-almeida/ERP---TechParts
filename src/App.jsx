@@ -15,6 +15,7 @@ function App() {
 
     const [clientList, setClientList] = useState([])
     const [productList, setProductList] = useState([])
+    const [saleList, setSaleList] = useState([])
 
     return (
 
@@ -73,7 +74,12 @@ function App() {
 
                 <Route
                     path="/sales"
-                    element={<Sales />}
+                    element={
+                        <Sales
+                            saleList={saleList}
+                            setSaleList={setSaleList}
+                        />
+                    }
                 />
 
             </Routes>
